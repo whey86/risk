@@ -1,0 +1,39 @@
+<!doctype html>
+<!-- html taggen beskriver vart htmldokumentet börjar  -->
+<html lang="sv">
+<!-- Inom head taggarna anges information som oftast ej är synlig för användarna men användbara för t.ex. webläsaren(nödvändiga tillägg, teckenkodning), sökmoterer osv-->
+<head>
+	<meta charset="utf-8">
+	<title>Risk Starcraft</title>
+	<meta name="description" content="Risk game">
+	<meta name="author" content="Erik">
+	<meta name="generator" content="Sublime Text 2">
+	<meta name="robots" content="noindex">
+	<meta name="keywords" content="Risk, Starcraft">
+	<link rel="stylesheet" type="text/css" href="stylesheets/style.css">
+	<link href='http://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
+	<script src="javascripts/client/jquery-2.1.3.min.js" ></script>
+	<script src="javascripts/client/jquery-ui.min.js" ></script>
+	<script src="javascripts/client/gamelobby.js" ></script>
+</head>
+
+<body>
+<div id="container">
+	<h1>Create or join a game</h1>
+	<br>
+	<div id="gamecontainer">
+	<ul>
+    <% gameslist.forEach(function(g) { %>
+        <li><a href="http://localhost:3000/lobby"><%=g.name %></a></li>
+
+    <% }); %>
+	</ul>
+	</div>
+	<br>
+	<label for="textfield">Gamename: </label>
+	<input type="field" id="textfield"/>
+	<input type="button" id="btnCreateGame" value="Create game"/>
+</div>
+</body>
+</html>
+
