@@ -24,14 +24,17 @@
 	<div id="gamecontainer">
 	<ul>
     <% gameslist.forEach(function(g) { %>
-        <li><a href="http://localhost:3000/lobby"><%=g.name %></a></li>
+        <li><%=g %></li>
 
     <% }); %>
 	</ul>
 	</div>
 	<br>
-	<label for="textfield">Gamename: </label>
-	<input type="field" id="textfield"/>
+	<label for="namefield">Name: </label>
+	<input type="field" id="namefield"/>
+	<br/>
+	<label for="hostfield">Gamename: </label>
+	<input type="field" id="hostfield"/>
 	<input type="button" id="btnCreateGame" value="Create game"/>
 </div>
 </body>

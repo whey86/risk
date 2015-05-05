@@ -9,15 +9,13 @@ var session = require('express-session');
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
-
 var app = express();
+
 
 
 var manager = require('./models/control.js').manager;
 console.log(manager.getGameList());
-manager.addGame("Tomte");
-manager.addGame("Sallad");
-console.log(manager.getGameList());
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 // app.set('view engine', 'jade');
@@ -47,12 +45,6 @@ app.use(session({
   activeDuration: 5 * 60 * 1000,
 }));
 
-var io = require('socket.io').listen(server);
-
-io.sockets.on('connection', function (socket) {
-  console.log("connected");
-    socket.emit('hi', 'everyone!');
-});
 
 
 

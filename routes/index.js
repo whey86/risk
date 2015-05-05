@@ -2,17 +2,19 @@ var express = require('express');
 var router = express.Router();
 var session = require('express-session');
 var manager = require('../models/control.js').manager;
-var io = require('socket.io');
+
 /* GET home page. */
 router.get('/', function(req, res, next) {
 	var games = manager.getGameList();
 	res.render('index',{gameslist : games});
 });
 router.post('/',function(req,res){
+	console.log("post post");
   var host = req.body.host;
-  var id = manager.addGame(host);
-
-res.send({redirect: '/lobby', host:host});
+  var name = req.body.name;
+  var id = manager.addGame(host,name);
+  
+res.send({redirect: '/lobby', host:host, name:name});
 });
 
 /* GET home page. */
